@@ -28,7 +28,10 @@
               "projects/the-application/src/assets",
               "projects/the-application/src/manifest.webmanifest"
             ],
-            "styles": ["projects/the-application/src/styles.scss"],
+            "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+              "projects/the-application/src/styles.scss"
+            ],
             "scripts": [],
             "webWorkerTsConfig": "projects/the-application/tsconfig.worker.json"
           },
@@ -95,7 +98,10 @@
               "projects/the-application/src/assets",
               "projects/the-application/src/manifest.webmanifest"
             ],
-            "styles": ["projects/the-application/src/styles.scss"],
+            "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+              "projects/the-application/src/styles.scss"
+            ],
             "scripts": []
           }
         },
