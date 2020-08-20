@@ -1,0 +1,98 @@
+{
+  "configVersion": 1,
+  "timestamp": 1598019168720,
+  "index": "/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "/memory-game/0.d3726b23eca5192fa575.worker.js",
+        "/memory-game/favicon.ico",
+        "/memory-game/index.html",
+        "/memory-game/main.8baea432b1e15a23bd5a.js",
+        "/memory-game/manifest.webmanifest",
+        "/memory-game/polyfills.dce7fcd2adec2a5aaa60.js",
+        "/memory-game/runtime.e227d1a0e31cbccbf8ec.js",
+        "/memory-game/styles.62ea3f644b56fd13d0ea.css"
+      ],
+      "patterns": []
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "/memory-game/assets/blank.png",
+        "/memory-game/assets/cheeseburger.png",
+        "/memory-game/assets/fries.png",
+        "/memory-game/assets/hotdog.png",
+        "/memory-game/assets/ice-cream.png",
+        "/memory-game/assets/icons/icon-128x128.png",
+        "/memory-game/assets/icons/icon-144x144.png",
+        "/memory-game/assets/icons/icon-152x152.png",
+        "/memory-game/assets/icons/icon-192x192.png",
+        "/memory-game/assets/icons/icon-384x384.png",
+        "/memory-game/assets/icons/icon-512x512.png",
+        "/memory-game/assets/icons/icon-72x72.png",
+        "/memory-game/assets/icons/icon-96x96.png",
+        "/memory-game/assets/milkshake.png",
+        "/memory-game/assets/pizza.png",
+        "/memory-game/assets/white.png"
+      ],
+      "patterns": []
+    }
+  ],
+  "dataGroups": [],
+  "hashTable": {
+    "/memory-game/0.d3726b23eca5192fa575.worker.js": "328208e976787f9df7cd349189b5bd6a4101a231",
+    "/memory-game/assets/blank.png": "9e55ad8a3af950887d58eb9e7657f7bf3c5ee15d",
+    "/memory-game/assets/cheeseburger.png": "37488ce87d7f2ae5cc116325a6558cf60352138a",
+    "/memory-game/assets/fries.png": "7fc6f8689222dbe9a9cd73f00b4e1c9db35fc8cc",
+    "/memory-game/assets/hotdog.png": "df780c606c98b74cbfd7d789235c42714748ed32",
+    "/memory-game/assets/ice-cream.png": "3d0c7af95a07483fec907635deeeac7e40f49a90",
+    "/memory-game/assets/icons/icon-128x128.png": "dae3b6ed49bdaf4327b92531d4b5b4a5d30c7532",
+    "/memory-game/assets/icons/icon-144x144.png": "b0bd89982e08f9bd2b642928f5391915b74799a7",
+    "/memory-game/assets/icons/icon-152x152.png": "7479a9477815dfd9668d60f8b3b2fba709b91310",
+    "/memory-game/assets/icons/icon-192x192.png": "1abd80d431a237a853ce38147d8c63752f10933b",
+    "/memory-game/assets/icons/icon-384x384.png": "329749cd6393768d3131ed6304c136b1ca05f2fd",
+    "/memory-game/assets/icons/icon-512x512.png": "559d9c4318b45a1f2b10596bbb4c960fe521dbcc",
+    "/memory-game/assets/icons/icon-72x72.png": "c457e56089a36952cd67156f9996bc4ce54a5ed9",
+    "/memory-game/assets/icons/icon-96x96.png": "3914125a4b445bf111c5627875fc190f560daa41",
+    "/memory-game/assets/milkshake.png": "ff3822212873ab7bd6ae27d97fdc87b0b36de3b2",
+    "/memory-game/assets/pizza.png": "5d35cbaf4edb3e2f2ca0b51bf84d24e8b34746ef",
+    "/memory-game/assets/white.png": "3c3c478a39cff4d985ca8e392af98a8b69eb9edf",
+    "/memory-game/favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
+    "/memory-game/index.html": "a150c7e49a84f4cf22bb9d8de6b2801e59d32aaa",
+    "/memory-game/main.8baea432b1e15a23bd5a.js": "c817b03db085a5fd58291d0eb2bd9d8d926efdf4",
+    "/memory-game/manifest.webmanifest": "c280f39a7ea0f83279bf6d1603af3bef0ebea972",
+    "/memory-game/polyfills.dce7fcd2adec2a5aaa60.js": "244ea4f912eb9441b29d04ff6429fab27e50dec3",
+    "/memory-game/runtime.e227d1a0e31cbccbf8ec.js": "a9aafcf49f49145093fc831efd9b8e2f6c71bb9c",
+    "/memory-game/styles.62ea3f644b56fd13d0ea.css": "bf7eba5531a77d48cf09501d3abfcc40bbc222d1"
+  },
+  "navigationUrls": [
+    {
+      "positive": true,
+      "regex": "^\\/.*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*\\.[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*\\/.*$"
+    }
+  ]
+}
