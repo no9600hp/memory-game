@@ -3,9 +3,9 @@ import { platformBrowserDynamic } from '@angular/platform-browser-dynamic'
 
 import { environment } from './environments/environment'
 import { RootModule } from './root/root.module'
-import { setBase } from './set-base/set-base'
+// import { setBase } from './set-base/set-base'
 
-setBase()
+// setBase()
 
 if (environment.production) {
   enableProdMode()
