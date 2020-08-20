@@ -12,6 +12,9 @@
     },
     {
       "path": "./projects/the-application/tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/the-application/tsconfig.worker.json"
     }
   ]
 }

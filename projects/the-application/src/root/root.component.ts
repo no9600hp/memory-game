@@ -5,12 +5,17 @@ import { Statistic } from '../statistic/statistic'
 import { StatisticsService } from '../statistics/statistics.service'
 import { StopwatchComponent } from '../stopwatch/stopwatch.component'
 
-
+/**
+ * Root that holds game and statistics.
+ */
 @Component({
   selector: 'app-root',
   templateUrl: './root.component.html',
   styleUrls: ['./root.component.scss']
 })
+/**
+ * Root that holds game and statistics.
+ */
 export class RootComponent implements OnInit {
   /**
    * Name of cards flipped.
@@ -174,5 +179,20 @@ export class RootComponent implements OnInit {
 
   public ngOnInit(): void {
     this.reset(new Event('click'))
+    this.webWorker()
+  }
+
+  private webWorker(): void {
+    if (typeof Worker !== 'undefined') {
+      let worker: Worker
+
+      worker = new Worker('./root.worker', { type: 'module' })
+
+      worker.onmessage = function(event: MessageEvent): void {
+        console.log(`page got message: "${event.data}"`)
+      }
+
+      worker.postMessage('Hello!')
+    }
   }
 }

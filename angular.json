@@ -25,10 +25,12 @@
             "aot": true,
             "assets": [
               "projects/the-application/src/favicon.ico",
-              "projects/the-application/src/assets"
+              "projects/the-application/src/assets",
+              "projects/the-application/src/manifest.webmanifest"
             ],
             "styles": ["projects/the-application/src/styles.scss"],
-            "scripts": []
+            "scripts": [],
+            "webWorkerTsConfig": "projects/the-application/tsconfig.worker.json"
           },
           "configurations": {
             "production": {
@@ -58,7 +60,9 @@
                   "maximumWarning": "6kb",
                   "maximumError": "10kb"
                 }
-              ]
+              ],
+              "serviceWorker": true,
+              "ngswConfigPath": "projects/the-application/ngsw-config.json"
             }
           }
         },
@@ -88,7 +92,8 @@
             "karmaConfig": "projects/the-application/karma.conf.js",
             "assets": [
               "projects/the-application/src/favicon.ico",
-              "projects/the-application/src/assets"
+              "projects/the-application/src/assets",
+              "projects/the-application/src/manifest.webmanifest"
             ],
             "styles": ["projects/the-application/src/styles.scss"],
             "scripts": []
@@ -100,7 +105,8 @@
             "tsConfig": [
               "projects/the-application/tsconfig.app.json",
               "projects/the-application/tsconfig.spec.json",
-              "projects/the-application/e2e/tsconfig.json"
+              "projects/the-application/e2e/tsconfig.json",
+              "projects/the-application/tsconfig.worker.json"
             ],
             "exclude": ["**/node_modules/**"]
           }

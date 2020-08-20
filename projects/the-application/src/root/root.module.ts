@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser'
 import { NgModule } from '@angular/core'
+import { ServiceWorkerModule } from '@angular/service-worker'
 
+import { environment } from '../environments/environment'
 import { HighScoresComponent } from '../high-scores/high-scores.component'
 import { RecentScoresComponent } from '../recent-scores/recent-scores.component'
 import { RootComponent } from './root.component'
@@ -18,7 +20,12 @@ import { StopwatchComponent } from '../stopwatch/stopwatch.component'
     StatisticsComponent,
     StopwatchComponent
   ],
-  imports: [BrowserModule],
+  imports: [
+    BrowserModule,
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production
+    })
+  ],
   providers: [],
   bootstrap: [RootComponent]
 })
