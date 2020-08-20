@@ -1,0 +1,24 @@
+<h2>
+  Matches: {{ cardsWon.length }}
+  <br />
+  Flips: {{ flips }}
+  <br />
+  <app-stopwatch></app-stopwatch>
+</h2>
+<button (click)="reset($event)" (touchend)="reset($event)" type="button">Reset</button>
+<div #grid class="grid">
+  <ng-container *ngIf="cardsWon.length < 6">
+    <img
+      *ngFor="let card of cards.cardArray; let i = index"
+      src="assets/blank.png"
+      (click)="flipCard($event, i)"
+      (touchend)="flipCard($event, i)"
+    />
+  </ng-container>
+  <ng-container *ngIf="cardsWon.length === 6">
+    <h3>
+      Congratulations You've Won
+    </h3>
+  </ng-container>
+</div>
+<app-statistics></app-statistics>

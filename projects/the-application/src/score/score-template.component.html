@@ -1,0 +1,44 @@
+<h3>{{ title }}:</h3>
+<table>
+  <thead>
+    <tr>
+      <th>{{ column }}:</th>
+      <th>Time:</th>
+      <th>Flips:</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngIf="!scores.length">
+      <td>{{ 1 | number }}</td>
+      <td>
+        {{ 0 | number: '2.0' }}
+        :
+        {{ 0 | number: '2.0' }}
+        :
+        {{ 3 | number: '2.0' }}
+        :
+        {{ 0 | number: '3.0' }}
+      </td>
+      <td>
+        {{ 12 | number }}
+      </td>
+    </tr>
+    <tr *ngFor="let score of scores; let i = index">
+      <td>
+        {{ i + 1 | number }}
+      </td>
+      <td>
+        {{ score.hours | number: '2.0' }}
+        :
+        {{ score.minutes | number: '2.0' }}
+        :
+        {{ score.seconds | number: '2.0' }}
+        :
+        {{ score.milliseconds | number: '3.0' }}
+      </td>
+      <td>
+        {{ score.flips | number }}
+      </td>
+    </tr>
+  </tbody>
+</table>
