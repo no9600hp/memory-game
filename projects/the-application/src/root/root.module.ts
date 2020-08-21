@@ -5,6 +5,7 @@ import { ServiceWorkerModule } from '@angular/service-worker'
 
 import { environment } from '../environments/environment'
 import { HighScoresComponent } from '../high-scores/high-scores.component'
+import { MaterialModule } from '../material/material.module'
 import { RecentScoresComponent } from '../recent-scores/recent-scores.component'
 import { RootComponent } from './root.component'
 import { StatisticsComponent } from '../statistics/statistics.component'
@@ -23,10 +24,11 @@ import { StopwatchComponent } from '../stopwatch/stopwatch.component'
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
+    MaterialModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production
-    }),
-    BrowserAnimationsModule
+    })
   ],
   providers: [],
   bootstrap: [RootComponent]

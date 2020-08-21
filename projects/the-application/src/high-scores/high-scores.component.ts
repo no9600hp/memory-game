@@ -1,8 +1,10 @@
-import { Component } from '@angular/core'
+import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core'
+import { MatTableDataSource } from '@angular/material/table'
+import { Subscription } from 'rxjs'
 
+import { HighScoresService } from './high-scores.service'
 import { ScoresTemplateComponent } from '../score/score-template'
 import { Statistic } from '../statistic/statistic'
-import { StatisticsService } from '../statistics/statistics.service'
 
 /**
  * Display the high scores
@@ -15,13 +17,27 @@ import { StatisticsService } from '../statistics/statistics.service'
 /**
  * Display the high scores
  */
-export class HighScoresComponent implements ScoresTemplateComponent {
+export class HighScoresComponent
+  implements OnDestroy, OnInit, ScoresTemplateComponent {
   /**
-   * Receive the scores from `HighScoresService`
+   * subscription
    */
-  public get scores(): Statistic[] {
-    return this.statistics.highScores
-  }
+  private sub: Subscription
+
+  /**
+   * First Column name.
+   */
+  public column: string = 'Rank'
+
+  /**
+   * Data source
+   */
+  public dataSource: MatTableDataSource<Statistic>
+
+  /**
+   * Columns
+   */
+  public displayColumns: string[] = ['column1', 'column2', 'column3']
 
   /**
    * Title to show.
@@ -29,9 +45,45 @@ export class HighScoresComponent implements ScoresTemplateComponent {
   public title: string = 'High Scores'
 
   /**
-   * First Column name.
+   * Receive the scores from `HighScoresService`
    */
-  public column: string = 'Rank'
+  public get scores(): Statistic[] {
+    return this.highScores.scores
+  }
 
-  constructor(public statistics: StatisticsService) {}
+  constructor(
+    private changeDetectionRef: ChangeDetectorRef,
+    private highScores: HighScoresService
+  ) {}
+
+  /**
+   * Set detection of score changes
+   */
+  private initialiseDataChange(): void {
+    this.sub = this.highScores.dataChange.subscribe((val: string): void => {
+      if (typeof val === 'string') {
+        this.dataSource.data = this.scores
+
+        this.changeDetectionRef.detectChanges()
+      }
+    })
+  }
+
+  /**
+   * Set the data source
+   */
+  private initialiseDataSource(): void {
+    this.dataSource = new MatTableDataSource<Statistic>(this.scores)
+  }
+
+  public ngOnInit(): void {
+    this.initialiseDataChange()
+    this.initialiseDataSource()
+  }
+
+  public ngOnDestroy(): void {
+    if (this.sub && this.sub instanceof Subscription) {
+      this.sub.unsubscribe()
+    }
+  }
 }

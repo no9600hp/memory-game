@@ -2,6 +2,7 @@ import { createTime } from '../create-time/create-time'
 import { DatabaseService } from '../database/database.service'
 import { Statistic } from '../statistic/statistic'
 import { IStatistic } from '../statistic/statistic.d'
+import { EventEmitter } from '@angular/core'
 
 /**
  * Functionality for getting, adding, sorting, removing, and clearing
@@ -24,21 +25,25 @@ export class Score {
   protected sortOnConstruction: boolean = false
 
   /**
+   * Emit a data change for material table.
+   */
+  public dataChange: EventEmitter<string>
+
+  /**
    * List of scores.
    */
   public get scores(): Statistic[] {
     if (typeof this._scores === 'undefined') {
       this._scores = []
-    } else {
-      if (!Array.isArray(this._scores)) {
-        this._scores = [this._scores]
-      }
+    } else if (!Array.isArray(this._scores)) {
+      this._scores = [this._scores]
     }
 
     return this._scores
   }
 
   constructor(protected database: DatabaseService) {
+    this.dataChange = new EventEmitter<string>()
     this.getScores()
   }
 
@@ -57,6 +62,8 @@ export class Score {
         if (this.sortOnConstruction) {
           this.sort()
         }
+
+        this.dataChange.emit('getAll')
       })
       .catch((error: DOMException): void => {
         if (error.message === 'Database not set') {
@@ -99,6 +106,8 @@ export class Score {
       }
       return 0
     })
+
+    this.dataChange.emit('sorted')
   }
 
   /**
@@ -176,7 +185,11 @@ export class Score {
    * @param statistic `Statistic` to add to indexeddb
    */
   public async add(statistic: Statistic): Promise<Statistic> {
+    let self: this
+
     this.addScoreStatistic(statistic)
+
+    self = this
 
     return await new Promise(
       (
@@ -203,6 +216,8 @@ export class Score {
           request.onsuccess = function(event: Event): void {
             statistic.keyID = this.result as number
 
+            self.dataChange.emit('add')
+
             resolve(statistic)
           }
 
@@ -226,7 +241,11 @@ export class Score {
    * Reject with error.
    */
   public async clear(): Promise<void> {
+    let self: this
+
     this.clearScores()
+
+    self = this
 
     return await new Promise(
       (
@@ -248,6 +267,8 @@ export class Score {
           request = objectStore.clear()
 
           request.onsuccess = function(event: Event): void {
+            self.dataChange.emit('clear')
+
             resolve(this.result)
           }
 
@@ -273,6 +294,10 @@ export class Score {
    * @param key `number` to remove from indexeddb
    */
   public async delete(key: number): Promise<undefined> {
+    let self: this
+
+    self = this
+
     return await new Promise(
       (
         resolve: (value: undefined) => void,
@@ -293,6 +318,8 @@ export class Score {
           request = objectStore.delete(key)
 
           request.onsuccess = function(event: Event): void {
+            self.dataChange.emit('delete')
+
             resolve(this.result)
           }
 

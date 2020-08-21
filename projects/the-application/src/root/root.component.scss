@@ -1,12 +1,21 @@
-.grid {
-  display: flex;
-  flex-wrap: wrap;
-  height: 330px;
-  width: 440px;
-  justify-content: center;
-  align-content: center;
+.wrapper {
+  margin: auto;
+  width: 100%;
+  max-width: 992px;
+}
 
-  img {
-    margin: 5px;
+mat-card {
+  &:not(.mat-elevation-z0) {
+    margin-bottom: 10px;
   }
+
+  mat-card {
+    &:last-of-type {
+      padding: 0;
+    }
+  }
+}
+
+img {
+  width: 100%;
 }

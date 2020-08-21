@@ -5,23 +5,13 @@ import { ICard } from './card.d'
  */
 export class Card implements ICard {
   /**
-   * Holder for `name`
-   */
-  private _name?: string
-  /**
    * Holder for `image`
    */
   private _image?: string
-
   /**
-   * Name
+   * Holder for `name`
    */
-  public get name(): string {
-    return this._name
-  }
-  public set name(val: string) {
-    this._name = val
-  }
+  private _name?: string
 
   /**
    * image
@@ -31,6 +21,16 @@ export class Card implements ICard {
   }
   public set image(val: string) {
     this._image = val
+  }
+
+  /**
+   * Name
+   */
+  public get name(): string {
+    return this._name
+  }
+  public set name(val: string) {
+    this._name = val
   }
 
   /**

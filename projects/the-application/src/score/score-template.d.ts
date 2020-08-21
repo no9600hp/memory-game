@@ -1,3 +1,5 @@
+import { MatTableDataSource } from '@angular/material/table'
+
 import { Statistic } from '../statistic/statistic'
 
 /**
@@ -5,9 +7,19 @@ import { Statistic } from '../statistic/statistic'
  */
 export interface ScoresTemplateComponent {
   /**
-   * Receive the scores
+   * First Column name.
    */
-  readonly scores: Statistic[]
+  column: string
+
+  /**
+   * Data source
+   */
+  dataSource: MatTableDataSource<Statistic>
+
+  /**
+   * Columns
+   */
+  displayColumns: string[]
 
   /**
    * Title to show.
@@ -15,7 +27,7 @@ export interface ScoresTemplateComponent {
   title: string
 
   /**
-   * First Column name.
+   * Receive the scores
    */
-  column: string
+  readonly scores: Statistic[]
 }
