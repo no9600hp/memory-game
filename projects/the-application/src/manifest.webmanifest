@@ -1,6 +1,6 @@
 {
-  "name": "the-application",
-  "short_name": "the-application",
+  "name": "Memory Game",
+  "short_name": "Memory Game",
   "theme_color": "#1976d2",
   "background_color": "#fafafa",
   "display": "standalone",
